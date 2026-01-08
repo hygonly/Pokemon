@@ -1,5 +1,8 @@
-﻿using System;
+﻿using ExcelToJson.Manager;
+using ExcelToJson.Utills;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,7 +41,7 @@ public partial class JsonDataManager
         public List<{0}Script> result;
     }
 
-    public async UniTask LoadTestScript()
+    public async UniTask Load{0}Script()
     {{
         var resultScript = new List<{0}Script>();
 
@@ -60,11 +63,15 @@ public partial class JsonDataManager
             Debug.LogError($""Load Failed: {2} Script\n {e.Message}"");
         }}
         
-        listTestScript = resultScript;
+        list{0}Script = resultScript;
         Complete();
     }}
+
+    public void Clear{0}Script()
+    {{
+        list{0}Script.Clear();
+    }}
 }}";
-        
 
         //{0}: Clear scripts
         //{1}: Load scripts
@@ -102,6 +109,47 @@ public partial class JsonDataManager
     }}
 }}";
 
-        public string FieldFormat = "public {0} {1}";
+        public class Builder
+        {
+            JsonDataManagerFormatter _format;
+            public Builder()
+            {
+                _format = new JsonDataManagerFormatter();
+            }
+            
+            public string CreateJson(JsonInfo fieldInfo, string directory, string file)
+            {
+                return "";
+            }
+
+            public string CreateJsonDataManager(List<SourceFieldInfo> fieldInfos, string directory, string file)
+            {
+                string field = "";
+                foreach (SourceFieldInfo fieldInfo in fieldInfos)
+                    field += "\t" + string.Format(_format.FieldFormat, fieldInfo.type, fieldInfo.name);
+
+                string path = string.Concat(Managers.InI.GetValue(Defines.InIKeyType.ClientSourcePath), "/", directory, "/", file, ".json");
+                string className = StringHelper.GetClassName(file);
+                string result = string.Format(_format.ClientJsonDataManagerFormat, className, directory, file + ".json", field);
+                File.WriteAllText(path, result);
+                return className;
+            }
+
+            public void CreateJsonDataManagerLoader(List<string> classNames)
+            {
+                string fileName = "JsonDataManager.Loader.cs";
+                string clearSource = "";
+                foreach (string className in classNames)
+                    clearSource += string.Format("\t\t" + _format.ClearFormat, className);
+
+                string loadSource = "";
+                foreach (string className in classNames)
+                    loadSource += string.Format("\t\t\t" + _format.LoadFormat, className);
+
+                string result = string.Format(_format.ClientJsonDataManagerLoaderFormat, clearSource, loadSource);
+                string path = string.Concat(Managers.InI.GetValue(Defines.InIKeyType.ClientSourcePath), "/", fileName);
+                File.WriteAllText(path, result);
+            }
+        }
     }
 }

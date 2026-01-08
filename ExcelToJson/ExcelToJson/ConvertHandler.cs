@@ -7,48 +7,55 @@ namespace ExcelToJson
 {
     public record struct SourceFieldInfo(string name, string type);
     public record struct JsonFieldInfo(string name, string value);
+    public record struct JsonInfo(string directory, string fileName, List<JsonFieldInfo> infos);
 
     public class ConvertHandler
     {
-        public static void BuildExcelToJson_Client()
+        public static void BuildExcelDataToClient()
         {
             string excelPath = Managers.InI.GetValue(Defines.InIKeyType.ExcelPath);
             if (string.IsNullOrEmpty(excelPath) == true)
                 return;
 
+            JsonDataManagerFormatter.Builder builder = new JsonDataManagerFormatter.Builder();
             DirectoryInfo directory = new DirectoryInfo(excelPath);
+            var classNames = new List<string>();
             foreach (FileInfo fileInfo in directory.GetFiles())
             {
                 FileStream stream = new FileStream(fileInfo.FullName, FileMode.Open, FileAccess.Read);
                 using (var reader = ExcelReaderFactory.CreateReader(stream))
                 {
                     var tables = reader.AsDataSet().Tables;
-                    var fieldRow = tables[0].Rows;
-                    var sourceFieldInfos = ConvertSourceFieldInfo(fieldRow);
+                    var rows = tables[0].Rows;
+                    JsonInfo json = new JsonInfo();
+
+                    //public string name 같은 소스 변수
                     for (int tableIndex = 0; tableIndex < tables.Count; tableIndex++)
                     {
-                        var jsonFieldInfos = ConvertJsonFieldInfo(fieldRow, sourceFieldInfos);
+                        //엑셀 데이터를 json 형식으로 변환
                         var table = tables[tableIndex];
-                        for (int rowIndex = 0; rowIndex < table.Rows.Count; rowIndex++)
-                        {
-                            var row = table.Rows[rowIndex];
-                            for (int columnIndex = 0; columnIndex < row.ItemArray.Length; columnIndex++)
-                            {
+                        var sourceFieldInfos = ConvertSourceFieldInfo(rows);
+                        var jsonFieldInfos = ConvertJsonFieldInfo(rows, sourceFieldInfos);
 
-                            }
-                        }
+                        string tableName = table.TableName;
+                        string directoryName = StringHelper.GetDirectoryName(tableName);
+                        string fileName = StringHelper.GetFileName(tableName);
+                        
+                        json.infos = new List<JsonFieldInfo>();
+                        json.directory = directoryName;
+                        json.fileName = fileName;
+
+                        classNames.Add(StringHelper.GetClassName(tableName));
+                        builder.CreateJsonDataManager(sourceFieldInfos, directoryName, fileName);
+                        builder.CreateJson(json, directoryName, fileName);
                     }
-
-
+                    
                     reader.Dispose();
                     reader.Close();
                 }
             }
-        }
 
-        public static void BuildExcelToSource_Client()
-        {
-
+            builder.CreateJsonDataManagerLoader(classNames);
         }
 
         private static List<SourceFieldInfo> ConvertSourceFieldInfo(DataRowCollection collection)
@@ -58,18 +65,9 @@ namespace ExcelToJson
             {
                 SourceFieldInfo info = new SourceFieldInfo();
                 string field = collection[i].ToString();
-                int index = field.LastIndexOf(".") - 1;
-                if (index > 0)
-                {
-                    info.type = field.Substring(0, index);
-                }
-                else
-                {
-                    index = 0;
-                    info.type = "int";
-                }
 
-                info.name = field.Substring(index);
+                info.type = StringHelper.GetFieldType(field);
+                info.name = StringHelper.GetVariableName(field);
                 result.Add(info);
             }
 
