@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ExcelToJson
 {
-    public partial class JsonDataManagerFormatter
+    public partial class Server_JsonDataManagerFormatter
     {
+        public class Builder
+        {
+
+        }
     }
 }

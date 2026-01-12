@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace ExcelToJson
 {
     internal static class Program
@@ -10,6 +12,7 @@ namespace ExcelToJson
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
         }

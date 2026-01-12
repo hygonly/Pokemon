@@ -1,4 +1,4 @@
-﻿using ExcelToJson.Utills;
+﻿using ExcelToJson.Utils;
 using System.Runtime.InteropServices;
 using System.Text;
 

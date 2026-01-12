@@ -61,10 +61,21 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.3.2f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ProjectPokemon\Source\Manager\Base\SlaveManager.cs" />
-    <Compile Include="Assets\ProjectPokemon\Source\Manager\Core\Managers.Managers.cs" />
-    <Compile Include="Assets\ProjectPokemon\Source\Manager\Core\Managers.cs" />
-    <Compile Include="Assets\ProjectPokemon\Source\Manager\Base\MasterManager.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Utill\ExtendedHelper.cs" />
+    <Compile Include="Assets\ProjectPokemon\Scenes\BaseScene.cs" />
+    <Compile Include="Assets\ProjectPokemon\AutoScriptExcelData\pokemon\JsonDataManager.PokemonInfo.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Common\Config.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Managers\Core\Managers.cs" />
+    <Compile Include="Assets\ProjectPokemon\AutoScriptExcelData\JsonDataManager.Loader.cs" />
+    <Compile Include="Assets\ProjectPokemon\Scenes\StartScene.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Managers\JsonDataManager.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Utill\Defines.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Managers\ResourceManager.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Managers\SceneManagerEx.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Managers\Base\MasterManager.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Managers\Asset\AddressablePool.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Managers\Base\SlaveManager.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Managers\Core\Managers.Managers.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -619,6 +630,10 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@191c0d7e3b69\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@4dfd81071c64\Runtime\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff\Mono.Cecil.dll</HintPath>
       <Private>False</Private>
@@ -1159,6 +1174,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline">
+      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1185,6 +1204,10 @@
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Addressables">
+      <HintPath>Library\ScriptAssemblies\Unity.Addressables.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="PPv2URPConverters">
@@ -1217,6 +1240,10 @@
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Burst.Editor">
@@ -1287,6 +1314,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.ResourceManager">
+      <HintPath>Library\ScriptAssemblies\Unity.ResourceManager.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1305,6 +1336,10 @@
     </Reference>
     <Reference Include="Unity.InputSystem.ForUI">
       <HintPath>Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Profiling.Core">
+      <HintPath>Library\ScriptAssemblies\Unity.Profiling.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.GPUDriven.Runtime">
@@ -1391,12 +1426,40 @@
       <HintPath>Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Addressables.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Addressables.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="UniTask.TextMeshPro.csproj">
+      <Project>{4DF2BC99-37AD-0933-84CE-7AB821605437}</Project>
+      <Name>UniTask.TextMeshPro</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.DOTween.csproj">
+      <Project>{3A0BAAB7-764D-05C2-44E9-666DB84B6126}</Project>
+      <Name>UniTask.DOTween</Name>
+    </ProjectReference>
+    <ProjectReference Include="ZString.csproj">
+      <Project>{5F4F1525-75FF-FA98-E8A8-B13043D1557C}</Project>
+      <Name>ZString</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.Addressables.csproj">
+      <Project>{7FD630BD-532E-9BE7-A3DE-A387C545D7E5}</Project>
+      <Name>UniTask.Addressables</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.Linq.csproj">
+      <Project>{BCF7379A-EBA9-D931-EFA3-BC5D88EDF6A5}</Project>
+      <Name>UniTask.Linq</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.csproj">
+      <Project>{5B010063-6787-B6E8-846A-E1C43216C4D8}</Project>
+      <Name>UniTask</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

@@ -34,6 +34,13 @@ namespace ExcelToJson
             return fileName;
         }
 
+        public static string GetScriptName(string fileName)
+        {
+            string result = string.Concat("JsonDataManager", "." ,fileName[0].ToString().ToUpper(), fileName.Substring(1), ".cs");
+
+            return result;
+        }
+
         public static string GetVariableName(string info)
         {
             int index = info.LastIndexOf(".");
