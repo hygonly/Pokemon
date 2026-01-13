@@ -61,15 +61,25 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.3.2f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ProjectPokemon\Source\Controller\Animation\BaseAnimController.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Controller\Core\ObjectControl.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Utill\ExtendedHelper.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Controller\Animation\UnitAnimController.cs" />
     <Compile Include="Assets\ProjectPokemon\Scenes\BaseScene.cs" />
+    <Compile Include="Assets\ProjectPokemon\Scenes\GameScene.cs" />
     <Compile Include="Assets\ProjectPokemon\AutoScriptExcelData\pokemon\JsonDataManager.PokemonInfo.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Common\Config.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Managers\Core\Managers.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Controller\NpcControl.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Controller\PokemonControl.cs" />
     <Compile Include="Assets\ProjectPokemon\AutoScriptExcelData\JsonDataManager.Loader.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Controller\PlayerControl.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\UI\Game\Battle\PokemonStatusUI.cs" />
     <Compile Include="Assets\ProjectPokemon\Scenes\StartScene.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Controller\UnitControl.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Managers\JsonDataManager.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Utill\Defines.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\UI\Game\Battle\BattleModeUIController.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Managers\ResourceManager.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Managers\SceneManagerEx.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Managers\Base\MasterManager.cs" />
@@ -630,16 +640,16 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@191c0d7e3b69\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\Plugins\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@4dfd81071c64\Runtime\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff\Mono.Cecil.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Library\PackageCache\com.unity.collections@aea9d3bd5e19\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">
@@ -1234,16 +1244,16 @@
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Searcher.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Burst.Editor">
@@ -1334,16 +1344,12 @@
       <HintPath>Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.InputSystem.ForUI">
-      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Profiling.Core">
       <HintPath>Library\ScriptAssemblies\Unity.Profiling.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.GPUDriven.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.GPUDriven.Runtime.dll</HintPath>
+    <Reference Include="Unity.InputSystem.ForUI">
+      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
@@ -1352,6 +1358,10 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.GPUDriven.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.GPUDriven.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Mathematics">

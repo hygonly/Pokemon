@@ -31,4 +31,14 @@ public class Defines
         ResourceDownload,
         Game
     }
+
+    public enum ObjectState
+    {
+        None,
+        Idle,
+        Move,
+        Attack,
+        Hit,
+        Die
+    }
 }
