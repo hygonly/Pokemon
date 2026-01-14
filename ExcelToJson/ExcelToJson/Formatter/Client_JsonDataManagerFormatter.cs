@@ -27,7 +27,7 @@ using UnityEngine;
 using Cysharp.Threading.Tasks;
 using Newtonsoft.Json;
 
-[System.Serializable]
+[Serializable]
 public class {0}Script
 {{
 {3}
@@ -38,6 +38,7 @@ public partial class JsonDataManager
     private List<{0}Script> Get{0}ScriptList {{ get {{ return list{0}Script; }} }}
     private List<{0}Script> list{0}Script;
 
+    [Serializable]
     public class {0}ScriptAll
     {{
         public List<{0}Script> result;
@@ -71,7 +72,7 @@ public partial class JsonDataManager
 
     public void Clear{0}Script()
     {{
-        list{0}Script.Clear();
+        list{0}Script?.Clear();
     }}
 }}";
 
@@ -161,8 +162,11 @@ public partial class JsonDataManager
                     clearSource += string.Format("\t\t" + _jsonFormat.ClearFormat, className);
 
                 string loadSource = "";
-                foreach (string className in classNames)
-                    loadSource += string.Format("\t\t\t" + _jsonFormat.LoadFormat, className);
+                for (int i = 0; i < classNames.Count - 1; i++)
+                    loadSource += string.Format("\t\t\t" + _jsonFormat.LoadFormat, classNames[0]) + ",\n";
+
+                loadSource += string.Format("\t\t\t" + _jsonFormat.LoadFormat, classNames[classNames.Count - 1]);
+                    
 
                 string result = string.Format(_jsonDataManagerFormat.ClientJsonDataManagerLoaderFormat, clearSource, loadSource);
                 string path = string.Concat(Managers.InI.GetValue(Defines.InIKeyType.ClientSourcePath), "/", fileName);

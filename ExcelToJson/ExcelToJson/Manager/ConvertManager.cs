@@ -8,7 +8,7 @@ namespace ExcelToJson
 {
     public record struct SourceFieldInfo(string name, string type);
     public record struct JsonFieldInfo(string name, string value);
-    public record struct JsonInfo(string directory, string fileName, Dictionary<int ,List<JsonFieldInfo>> infos);
+    public record struct JsonInfo(string directory, string fileName, Dictionary<int, List<JsonFieldInfo>> infos);
 
     public class ConvertManager
     {
@@ -59,7 +59,7 @@ namespace ExcelToJson
                             string directoryName = StringHelper.GetDirectoryName(tableName);
                             string fileName = StringHelper.GetFileName(tableName);
 
-                            json.infos = new Dictionary<int, List<JsonFieldInfo>>();
+                            json.infos = new();
                             json.directory = directoryName;
                             json.fileName = fileName;
 

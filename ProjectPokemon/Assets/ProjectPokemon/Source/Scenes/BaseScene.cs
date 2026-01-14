@@ -7,6 +7,12 @@ public class BaseScene : MonoBehaviour
     [SerializeField] protected Defines.SceneType _sceneType;
 
     protected bool _init;
+
+    private void Awake()
+    {
+        Init();
+    }
+
     protected virtual bool Init()
     {
         if (_init == true)

@@ -24,11 +24,18 @@ public partial class JsonDataManager
     {
         _loadCount = 0;
 		ClearPokemonInfoScript();
+		ClearEvolutionInfoScript();
+		ClearActiveSkillInfoScript();
+		ClearSkillArgInfoScript();
+		ClearStringKRScript();
 
 
         await UniTask.WhenAll(
-			LoadPokemonInfoScript()
-
+			LoadPokemonInfoScript(),
+			LoadPokemonInfoScript(),
+			LoadPokemonInfoScript(),
+			LoadPokemonInfoScript(),
+			LoadStringKRScript()
         );
     }
 }

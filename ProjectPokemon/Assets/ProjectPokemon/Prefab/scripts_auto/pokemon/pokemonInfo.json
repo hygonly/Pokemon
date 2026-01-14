@@ -1,8 +1,20 @@
+[
   {
-        	"pokemonID": 1
-	"firstType": 1
-	"secondType": 0
-	"name": 1
-	"index": 1
-
-    },
+    "pokemonID": "1",
+    "firstType": "12",
+    "secondType": "4",
+    "name": "1"
+  },
+  {
+    "pokemonID": "2",
+    "firstType": "12",
+    "secondType": "4",
+    "name": "1"
+  },
+  {
+    "pokemonID": "3",
+    "firstType": "12",
+    "secondType": "4",
+    "name": "1"
+  }
+]

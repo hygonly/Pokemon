@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class UnitAnimController : MonoBehaviour
+public enum UnitAnim
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    Idle,
+    Attack,
+    Hit,
+    Die,
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public class UnitAnimController : BaseAnimController
+{
+    
 }

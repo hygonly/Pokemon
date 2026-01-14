@@ -65,27 +65,33 @@
     <Compile Include="Assets\ProjectPokemon\Source\Controller\Core\ObjectControl.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Utill\ExtendedHelper.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Controller\Animation\UnitAnimController.cs" />
-    <Compile Include="Assets\ProjectPokemon\Scenes\BaseScene.cs" />
-    <Compile Include="Assets\ProjectPokemon\Scenes\GameScene.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Scenes\GameScene.cs" />
     <Compile Include="Assets\ProjectPokemon\AutoScriptExcelData\pokemon\JsonDataManager.PokemonInfo.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Common\Config.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Managers\Core\Managers.cs" />
-    <Compile Include="Assets\ProjectPokemon\Source\Controller\NpcControl.cs" />
-    <Compile Include="Assets\ProjectPokemon\Source\Controller\PokemonControl.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Scenes\BaseScene.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Controller\Player\PlayerControl.cs" />
+    <Compile Include="Assets\ProjectPokemon\AutoScriptExcelData\skill\JsonDataManager.ActiveSkillInfo.cs" />
     <Compile Include="Assets\ProjectPokemon\AutoScriptExcelData\JsonDataManager.Loader.cs" />
-    <Compile Include="Assets\ProjectPokemon\Source\Controller\PlayerControl.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\UI\Game\Battle\PokemonStatusUI.cs" />
-    <Compile Include="Assets\ProjectPokemon\Scenes\StartScene.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Controller\Npc\NpcControl.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Controller\UnitControl.cs" />
-    <Compile Include="Assets\ProjectPokemon\Source\Managers\JsonDataManager.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Data\Game\Skill\SkillData.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Managers\JsonData\JsonDataManager.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Utill\Defines.cs" />
+    <Compile Include="Assets\ProjectPokemon\AutoScriptExcelData\pokemon\JsonDataManager.EvolutionInfo.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\UI\Game\Battle\BattleModeUIController.cs" />
+    <Compile Include="Assets\ProjectPokemon\AutoScriptExcelData\skill\JsonDataManager.SkillArgInfo.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Scenes\StartScene.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Managers\ResourceManager.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Managers\SceneManagerEx.cs" />
+    <Compile Include="Assets\ProjectPokemon\AutoScriptExcelData\string\JsonDataManager.StringKR.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Managers\Base\MasterManager.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Controller\Pokemon\PokemonControl.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Managers\Asset\AddressablePool.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Managers\Base\SlaveManager.cs" />
     <Compile Include="Assets\ProjectPokemon\Source\Managers\Core\Managers.Managers.cs" />
+    <Compile Include="Assets\ProjectPokemon\Source\Managers\User\UserInfoManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -1461,6 +1467,10 @@
     <ProjectReference Include="UniTask.Addressables.csproj">
       <Project>{7FD630BD-532E-9BE7-A3DE-A387C545D7E5}</Project>
       <Name>UniTask.Addressables</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniRx.csproj">
+      <Project>{CF19A719-A547-F594-2A38-53208EB31954}</Project>
+      <Name>UniRx</Name>
     </ProjectReference>
     <ProjectReference Include="UniTask.Linq.csproj">
       <Project>{BCF7379A-EBA9-D931-EFA3-BC5D88EDF6A5}</Project>

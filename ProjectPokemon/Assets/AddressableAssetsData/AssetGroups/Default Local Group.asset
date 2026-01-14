@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Default Local Group
+  m_GUID: 60e698f4dbbeb7c46aaa36e65977eb24
+  m_SerializeEntries:
+  - m_GUID: 5fa71c6a9883b9d4fb8fb9dd7a7ad12f
+    m_Address: Assets/ProjectPokemon/Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - download
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7a0f703017b0954487f0876452d78b3
+    m_Address: Assets/ProjectPokemon/UI
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - download
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: d438f5a0b925a6d4eaf998dfa5b5b861, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 7a372713eab9b444b86dfbce1f8d72db, type: 2}
+    - {fileID: 11400000, guid: aaf6ed326ba1d7f42a464c84f5c3fd1b, type: 2}

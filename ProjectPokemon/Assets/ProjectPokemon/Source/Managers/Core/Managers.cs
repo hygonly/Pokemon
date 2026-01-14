@@ -39,10 +39,12 @@ public partial class Managers : MasterManager
         _resource = new ResourceManager();
         _jsonData = new JsonDataManager();
         _scene = new SceneManagerEx();
+        _user = new UserInfoManager();
 
         _resource.RegisterMaster(this);
         _jsonData.RegisterMaster(this);
         _scene.RegisterMaster(this);
+        _user.RegisterMaster(this);
     }
 
 }

@@ -9,14 +9,13 @@ using UnityEngine;
 using Cysharp.Threading.Tasks;
 using Newtonsoft.Json;
 
-[System.Serializable]
+[Serializable]
 public class PokemonInfoScript
 {
-	public Int64 pokemonID;
-	public Defines.PokemonType firstType;
-	public Defines.PokemonType secondType;
-	public int name;
-	public int index;
+	public Int64 pokemonID { get; set; }
+	public Defines.PokemonType firstType { get; set; }
+	public Defines.PokemonType secondType { get; set; }
+	public int name { get; set; }
 
 }
 
@@ -25,6 +24,7 @@ public partial class JsonDataManager
     private List<PokemonInfoScript> GetPokemonInfoScriptList { get { return listPokemonInfoScript; } }
     private List<PokemonInfoScript> listPokemonInfoScript;
 
+    [Serializable]
     public class PokemonInfoScriptAll
     {
         public List<PokemonInfoScript> result;
@@ -58,6 +58,6 @@ public partial class JsonDataManager
 
     public void ClearPokemonInfoScript()
     {
-        listPokemonInfoScript.Clear();
+        listPokemonInfoScript?.Clear();
     }
 }

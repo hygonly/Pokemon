@@ -57,7 +57,7 @@ public class StartScene : BaseScene
     public async void OnCompletedResourceDownload()
     {
         await Managers.JsonData.LoadAll();
-        await Managers.Scene.LoadSceneAsync(Defines.SceneType.Game);
+        await Managers.Scene.LoadSceneAsync(Defines.SceneType.GameScene);
     }
 
     private double GetDownloadResourceSize(string label)

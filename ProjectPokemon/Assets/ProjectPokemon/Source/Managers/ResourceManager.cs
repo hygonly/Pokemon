@@ -34,7 +34,7 @@ public class ResourceManager : SlaveManager
     public AsyncOperationHandle<SceneInstance> LoadScene(Defines.SceneType sceneType, LoadSceneMode sceneMode = LoadSceneMode.Single)
     {
         string loadKey = ZString.Concat(Config.ScenePath, "/", sceneType.ToString(), ".unity");
-        var handle = Addressables.LoadSceneAsync(sceneType, sceneMode, true, 100, SceneReleaseMode.ReleaseSceneWhenSceneUnloaded);
+        var handle = Addressables.LoadSceneAsync(loadKey, sceneMode, true, 100, SceneReleaseMode.ReleaseSceneWhenSceneUnloaded);
         return handle;
     }
 

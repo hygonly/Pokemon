@@ -3,7 +3,6 @@ using Cysharp.Threading.Tasks;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static Defines;
 
 public class SceneManagerEx : SlaveManager
 {
