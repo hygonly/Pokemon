@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class Defines
 {
-    public enum PokemonType
+    public enum UserSettingType
+    {
+        None = 0,
+    }
+
+    public enum MoveType
     {
         None = 0,
         Normal = 1,     //노말
@@ -17,11 +22,40 @@ public class Defines
         Fire = 10,      //불
         Water = 11,     //물
         Grass = 12,     //풀
-        Eletric = 13,   //전기
-        Phychic = 14,   //에스퍼
+        Electric = 13,   //전기
+        Psychic = 14,   //에스퍼
         Ice = 15,       //얼음
         Dragon = 16,    //드래곤
-        Drak = 17,      //악
+        Dark = 17,      //악
+    }
+
+    public enum NatureType
+    {
+        Lonely,     //외로움       (공업/방떨)
+        Admant,     //고집        (공업/특공떨)
+        Naughty,    //개구쟁이      (공업/특방떨)
+        Brave,      //용감한       (공업/슾떨)
+        Bold,       //대담        (방업/공떨)
+        Impish,     //장난구러기     (방업/특공떨)
+        Lax,        //촐랑        (방업/특방떨)
+        Relaxed,    //무사태평     (방업/슾떨)
+        Modest,     //조심        (특공업/공떨)
+        Mild,       //의젓        (특공업/방떨)
+        Rash,       //덜렁        (특공업/특방떨)
+        Quiet,      //냉정        (특공업/슾떨)
+        Calm,       //차분        (특방업/공떨)
+        Gentle,     //얌전        (특방업/방떨)
+        Careful,    //신중        (특방업/특공떨)
+        Sassy,      //건방        (특방업/슾떨)
+        Timid,      //겁쟁이       (슾업/공떨)
+        Hasty,      //성급        (슾업/방떨)
+        Jolly,      //명랑        (슾업/특공떨)
+        Naive,      //천진난만      (슾업/특방떨)
+        Bashful,    //수줍음       (무보정)
+        Hardy,      //노력        (무보정)
+        Docile,     //온순        (무보정)
+        Quirky,     //변덕        (무보정)
+        Serious,    //성실        (무보정)
     }
 
     public enum SceneType
@@ -29,6 +63,14 @@ public class Defines
         StartScene,
         ResourceDownloadScene,
         GameScene
+    }
+
+    public enum UnitType
+    {
+        Player,
+        Npc,
+        AI,
+        Pokemon,
     }
 
     public enum ObjectState
@@ -80,12 +122,25 @@ public class Defines
 
     public enum StatType
     {
+        None,   //없음
         Hp,     //체력
         Atk,    //공격
         SpAtk,  //특공
         Def,    //방
         SpDef,  //특방
         Speed,  //스피드
+    }
+
+    public enum RankType
+    {
+        Atk,        //공
+        SpAtk,      //특공
+        Def,        //방
+        SpDef,      //특방
+        Speed,      //스피드
+        Critical,   //급소
+        Evasion,    //회피
+        Accuracy    //명중
     }
 
     public enum ConditionStatusType
@@ -106,5 +161,13 @@ public class Defines
         Self,       //나
         Ally,       //아군
         All,        //전체 (나를 제외한)
+    }
+
+    public enum EffectActionState
+    {
+        Enter,
+        Update,
+        Exit,
+        Finish
     }
 }

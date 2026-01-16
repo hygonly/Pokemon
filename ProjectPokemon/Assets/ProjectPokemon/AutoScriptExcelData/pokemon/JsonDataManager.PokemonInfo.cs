@@ -13,8 +13,8 @@ using Newtonsoft.Json;
 public class PokemonInfoScript
 {
 	public Int64 pokemonID { get; set; }
-	public Defines.PokemonType firstType { get; set; }
-	public Defines.PokemonType secondType { get; set; }
+	public Defines.MoveType firstType { get; set; }
+	public Defines.MoveType secondType { get; set; }
 	public int name { get; set; }
 
 }

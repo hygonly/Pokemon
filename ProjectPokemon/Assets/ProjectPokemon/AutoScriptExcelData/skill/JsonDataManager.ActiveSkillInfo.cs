@@ -14,7 +14,7 @@ public class ActiveSkillInfoScript
 {
 	public Int64 skillID { get; set; }
 	public Defines.SkillCategoryType skillCategoryType { get; set; }
-	public Defines.PokemonType skillType { get; set; }
+	public Defines.MoveType skillType { get; set; }
 	public int accuracy { get; set; }
 	public int defaultPowerPoint { get; set; }
 	public int skillName { get; set; }

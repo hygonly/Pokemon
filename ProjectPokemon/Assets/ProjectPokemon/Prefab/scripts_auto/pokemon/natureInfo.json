@@ -1,0 +1,127 @@
+[
+  {
+    "natureType": "1",
+    "StatTypeincreamentStatType": "2",
+    "decreamentStatType": "4"
+  },
+  {
+    "natureType": "2",
+    "StatTypeincreamentStatType": "2",
+    "decreamentStatType": "3"
+  },
+  {
+    "natureType": "3",
+    "StatTypeincreamentStatType": "2",
+    "decreamentStatType": "5"
+  },
+  {
+    "natureType": "4",
+    "StatTypeincreamentStatType": "2",
+    "decreamentStatType": "6"
+  },
+  {
+    "natureType": "5",
+    "StatTypeincreamentStatType": "4",
+    "decreamentStatType": "2"
+  },
+  {
+    "natureType": "6",
+    "StatTypeincreamentStatType": "4",
+    "decreamentStatType": "3"
+  },
+  {
+    "natureType": "7",
+    "StatTypeincreamentStatType": "4",
+    "decreamentStatType": "5"
+  },
+  {
+    "natureType": "8",
+    "StatTypeincreamentStatType": "4",
+    "decreamentStatType": "6"
+  },
+  {
+    "natureType": "9",
+    "StatTypeincreamentStatType": "3",
+    "decreamentStatType": "2"
+  },
+  {
+    "natureType": "10",
+    "StatTypeincreamentStatType": "3",
+    "decreamentStatType": "4"
+  },
+  {
+    "natureType": "11",
+    "StatTypeincreamentStatType": "3",
+    "decreamentStatType": "5"
+  },
+  {
+    "natureType": "12",
+    "StatTypeincreamentStatType": "3",
+    "decreamentStatType": "6"
+  },
+  {
+    "natureType": "13",
+    "StatTypeincreamentStatType": "5",
+    "decreamentStatType": "2"
+  },
+  {
+    "natureType": "14",
+    "StatTypeincreamentStatType": "5",
+    "decreamentStatType": "4"
+  },
+  {
+    "natureType": "15",
+    "StatTypeincreamentStatType": "5",
+    "decreamentStatType": "3"
+  },
+  {
+    "natureType": "16",
+    "StatTypeincreamentStatType": "5",
+    "decreamentStatType": "6"
+  },
+  {
+    "natureType": "17",
+    "StatTypeincreamentStatType": "6",
+    "decreamentStatType": "2"
+  },
+  {
+    "natureType": "18",
+    "StatTypeincreamentStatType": "6",
+    "decreamentStatType": "4"
+  },
+  {
+    "natureType": "19",
+    "StatTypeincreamentStatType": "6",
+    "decreamentStatType": "3"
+  },
+  {
+    "natureType": "20",
+    "StatTypeincreamentStatType": "6",
+    "decreamentStatType": "5"
+  },
+  {
+    "natureType": "21",
+    "StatTypeincreamentStatType": "0",
+    "decreamentStatType": "0"
+  },
+  {
+    "natureType": "22",
+    "StatTypeincreamentStatType": "0",
+    "decreamentStatType": "0"
+  },
+  {
+    "natureType": "23",
+    "StatTypeincreamentStatType": "0",
+    "decreamentStatType": "0"
+  },
+  {
+    "natureType": "24",
+    "StatTypeincreamentStatType": "0",
+    "decreamentStatType": "0"
+  },
+  {
+    "natureType": "25",
+    "StatTypeincreamentStatType": "0",
+    "decreamentStatType": "0"
+  }
+]

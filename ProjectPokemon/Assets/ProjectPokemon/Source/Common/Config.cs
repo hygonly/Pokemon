@@ -15,4 +15,6 @@ public class Config
 
     public const float INTERVAL = 20F;
     public const float GAME_TICK = 0.02F;
+    public const float INCREAMENT_NATURE_ABILITY = 1.1F;
+    public const float DECREAMENT_NATURE_ABILITY = 0.9F;
 }

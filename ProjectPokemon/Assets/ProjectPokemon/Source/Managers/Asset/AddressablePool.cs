@@ -23,67 +23,67 @@ public class AddressablePool
 
     }
 
-    private Dictionary<string, AddressableRef> _addressableRefDatas = new();
-    private HashSet<string> _loadedDatas = new();
-    private HashSet<string> _releaseDatas = new();
-    private List<string> _resourceReleaseDatas = new();
+    private Dictionary<string, AddressableRef> mAddressableRefDatas = new();
+    private HashSet<string> mLoadedDatas = new();
+    private HashSet<string> mReleaseDatas = new();
+    private List<string> mResourceReleaseDatas = new();
 
     public async UniTask<T> LoadAddressable<T>(string key) where T : Object
     {
-        if (_addressableRefDatas.ContainsKey(key) == false)
+        if (mAddressableRefDatas.ContainsKey(key) == false)
         {
-            if (_loadedDatas.Contains(key) == false)
+            if (mLoadedDatas.Contains(key) == false)
             {
                 try
                 {
-                    _loadedDatas.Add(key);
+                    mLoadedDatas.Add(key);
                     var asyncOperation = Addressables.LoadAssetAsync<T>(key);
 
                     await UniTask.WaitUntil(() => asyncOperation.IsDone == true);
 
-                    _loadedDatas.Remove(key);
+                    mLoadedDatas.Remove(key);
                     if (asyncOperation.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
                     {
-                        _addressableRefDatas[key] = new AddressableRef(asyncOperation.Result);
+                        mAddressableRefDatas[key] = new AddressableRef(asyncOperation.Result);
                     }
                     else
                     {
-                        _addressableRefDatas[key] = null;
+                        mAddressableRefDatas[key] = null;
                         Debug.LogError($"Failed load asset: {key}");
                         return null;
                     }
                 }
                 catch (Exception)
                 {
-                    _addressableRefDatas[key] = null;
+                    mAddressableRefDatas[key] = null;
                     Debug.LogError($"Failed load asset: {key}");
                     return null;
                 }
             }
             else
             {
-                await UniTask.WaitUntil(() => _addressableRefDatas.ContainsKey(key) == true);
+                await UniTask.WaitUntil(() => mAddressableRefDatas.ContainsKey(key) == true);
             }
         }
 
-        if (_addressableRefDatas.ContainsKey(key) == false)
+        if (mAddressableRefDatas.ContainsKey(key) == false)
             return null;
 
-        Interlocked.Increment(ref _addressableRefDatas[key].refCount);
-        return _addressableRefDatas[key].resource as T;
+        Interlocked.Increment(ref mAddressableRefDatas[key].refCount);
+        return mAddressableRefDatas[key].resource as T;
     }
 
     public void ReleaseResource(string key, int decrementRefCount)
     {
-        _resourceReleaseDatas.Add(key);
+        mResourceReleaseDatas.Add(key);
         ReleaseResource(decrementRefCount);
     }
 
     private void ReleaseResource(int decrementRefCount)
     {
-        foreach (var key in _resourceReleaseDatas)
+        foreach (var key in mResourceReleaseDatas)
         {
-            if (_addressableRefDatas.TryGetValue(key, out var addressable) == true)
+            if (mAddressableRefDatas.TryGetValue(key, out var addressable) == true)
             {
                 if (addressable != null && Interlocked.Add(ref addressable.refCount, -decrementRefCount) <= 0)
                     DelayRelease(key, addressable, (60).MillisPerSecond()).Forget();
@@ -93,10 +93,10 @@ public class AddressablePool
 
     private async UniTaskVoid DelayRelease(string key, AddressableRef addressable, int milliseconds)
     {
-        if (_releaseDatas.Contains(key) == true)
+        if (mReleaseDatas.Contains(key) == true)
             return;
 
-        _releaseDatas.Add(key);
+        mReleaseDatas.Add(key);
 
         int interval = 100;
         int elapsed = 0;
@@ -116,10 +116,10 @@ public class AddressablePool
         if (addressable.refCount <= 0)
         {
             Addressables.Release(addressable.resource);
-            _addressableRefDatas.Remove(key);
+            mAddressableRefDatas.Remove(key);
             Debug.Log($"Release asset: {key}");
         }
 
-        _releaseDatas.Remove(key);
+        mReleaseDatas.Remove(key);
     }
 }
